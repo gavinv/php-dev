@@ -1,0 +1,15 @@
+{
+    "name": "gavin/php-dev",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Gavin",
+            "email": "gavinvaught@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/yaml": "^3.0",
+        "dominiquevienne/honeypot": "^3.1",
+        "google/recaptcha": "~1.1"
+    }
+}
