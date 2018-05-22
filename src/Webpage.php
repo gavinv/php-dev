@@ -1,6 +1,5 @@
 <?php
 
-
 class Webpage {
 
   private $myUrl;
@@ -10,9 +9,14 @@ class Webpage {
   }
 
   public function showHighlight(string $requestedUrl) {
-    $requestedUrl = $this->myUrl;
+    $hightlightState = false;
 
-    return $requestedUrl;
+    if ($this->getFilename($requestedUrl) == $this->getFilename($this->myUrl)) {
+      $hightlightState = true;
+    }
+    // if ()
+
+    return $highlightState;
   }
 
   private function getFilename(string $url) {
@@ -27,16 +31,36 @@ class Webpage {
       }
     }
 
-    return $segment;
+    return $filename;
   }
 
-  private function checkSection(string $url) {
-    
+  private function getSections(string $url) {
+    $sections = [];
+    $uriSegments = explode('/', $url);
+
+    foreach($uriSegments as $segment) {
+      if (preg_match('(?!\/)\w+[.]\w+', $segment)) {
+        $sections += $segment;
+      } else {
+        continue;
+      }
+    }
+
+    return $sections;
   }
 
-  private function isLanding() {
-
+  private function compareSection(string $section1, string $section2) {
+    return $status = ($section1 == $section2 ? true : false);
   }
+
+  private function isLanding(string $filename) {
+    if (preg_match('(?!\/)\w+[.]\w+', $filename)&& $filename == 'index.html') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }
 
 ?>
