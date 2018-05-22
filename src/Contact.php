@@ -49,10 +49,10 @@ if (isset($_POST['g-recaptcha-response'])) {
     // send email 
     $success = mail($emailTo, $subject, $body, "From: <$emailFrom>");
 
-    print "<meta http-equiv=\"refresh\" content=\"0;URL=contactthanks.php>";
+    print "<meta http-equiv=\"refresh\" content=\"0;URL=realco/contactthanks.php>";
   }
   else {
-    $error = $resp->error;
+    return $error = $resp->error;
   }
 }
 ?>

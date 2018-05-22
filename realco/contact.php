@@ -36,7 +36,7 @@ $honeypotInputs = $oForm->inputs();
           <input type="tel" placeholder="Phone Number" name="phone" id="phone">
         </fieldset>
         <fieldset>
-          <input type="text" placeholder="How did you head about us?" name="referral" id="referral">
+          <input type="text" placeholder="How did you hear about us?" name="referral" id="referral">
         </fieldset>
         <fieldset id="budgetgroup">
           <label for="budget1">Budget</label>
