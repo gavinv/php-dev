@@ -2,23 +2,40 @@
 
 require '../src/Webpage.php';
 require '../vendor/autoload.php';
+require '../src/Input.php';
 
-$webpage = new Webpage($_SERVER['REQUEST_URI']);
+function pageController() {
+  $data = [];
+  $errors = [];
+  if (Input::isPost()) {
+    $webpage = new Webpage(Input::getString('myUrl'));
+    $data['showHighlight'] = $webpage->showHighlight(Input::getString('requestedUrl'));
+  }
+  return $data;
+}
 
-echo $webpage->showHighlight();
-
+extract(pageController());
 ?>
 <html>
-  <head>
-    <title>Gavin Vaught</title>
-  </head>
-  <body>
-    <br>
-    {# $myUrl value $requestedUrl value return value
-    "/section/index.html" "/section/page.html" true
-    "/section/page.html" "/section/other-page.html" false
-    "/section/index.html" "/section/subsection/index.html" true
-    "/section/index.html" "/section/subsection/page.html" true
-    "/section/subsection/index.html" "/section/other/index.html" false  #}
-  </body>
+<head>
+  <title>Technical Skills #1 – Gavin Vaught</title>
+</head>
+<body>
+  <br>
+  <form method="post">
+    <fieldset>
+      <label for="myUrl">myUrl:</label>
+      <input type="text" value="<?php echo $_SERVER['REQUEST_URI']; ?>" name="myUrl" id="myUrl">
+    </fieldset>
+    <fieldset>
+      <label for="requestedUrl">requestedUrl:</label>
+      <input autofocus type="text" placeholder="/section/page.php" name="requestedUrl" id="requestedUrl">
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+  </form>
+  <h3><?php echo $showHighlight ?? ''; ?></h3>
+
+</body>
 </html>
