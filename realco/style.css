@@ -42,7 +42,7 @@ body {
 #contact {
   background: #F9F9F9;
   padding: 25px;
-  margin: 150px 0;
+  margin: 5em 0;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
@@ -103,14 +103,17 @@ fieldset {
 }
 
 #contact input[type="number"] {
-	width: 50% !important;
+	max-width: 45%;
+	display: inline-block;
+	margin: 0 auto;
 }
-#budgetgroup {
-	display: flex;
-	flex-direction: row; 
-	justify-content: space-between;
-	align-content: space-between;
-	align-items: stretch;
+
+#budget1 {
+	margin-right: 2em;
+}
+
+.g-recaptcha {
+	margin: 0 1em;
 }
 
 #contact button[type="submit"] {
