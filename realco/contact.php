@@ -21,7 +21,6 @@ $honeypotInputs = $oForm->inputs();
 </head>
 
 <body>
-<!-- <i class="fas fa-home fa-10x"></i> -->
   <div id="page-wrap" class="container">
     <div id="contact">
       <h3>Real Estate Co.</h3>
