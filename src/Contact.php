@@ -10,7 +10,7 @@ $lang = 'en';
 
 if (isset($_POST['g-recaptcha-response'])) {
   
-  $emailFrom = "gavinvaught@gmail.com";
+  $emailFrom = "gavin@gavinvaught.com";
   $emailTo = "gavinvaught@gmail.com";
   $subject = "Contact Form Submission – RealCo.";
   $name = Trim(stripslashes($_POST['name'])); 
@@ -49,7 +49,7 @@ if (isset($_POST['g-recaptcha-response'])) {
     // send email 
     $success = mail($emailTo, $subject, $body, "From: <$emailFrom>");
 
-    print "<meta http-equiv=\"refresh\" content=\"0;URL=realco/contactthanks.php>";
+    print "<meta http-equiv=\"refresh\" content=\"0;URL=/realco/contactthanks.php>";
   }
   else {
     return $error = $resp->error;

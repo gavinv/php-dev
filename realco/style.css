@@ -22,7 +22,7 @@ body {
 }
 
 .container {
-  max-width: 400px;
+  max-width: 550px;
   width: 100%;
   margin: 0 auto;
   position: relative;
@@ -103,7 +103,7 @@ fieldset {
 }
 
 #contact input[type="number"] {
-	width: 40% !important;
+	width: 50% !important;
 }
 #budgetgroup {
 	display: flex;
