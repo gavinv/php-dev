@@ -5,7 +5,7 @@ require_once __DIR__ . '/../../../src/Input.php';
 function pageController($dbc) {
   $data = [];
   $errors = [];
-  $data['entries'] = $dbc->query('SELECT * FROM contact_entries')->fetchAll();
+  // $data['entries'] = $dbc->query('SELECT * FROM contact_entries')->fetchAll();
   $data['page'] = Input::get('page', 1);
   $secret = '6LdGs1oUAAAAAGZKT6Jn1195cNvOOdR3QeZ59wLB';
   $recaptcha = new \ReCaptcha\ReCaptcha($secret);
@@ -94,20 +94,20 @@ function pageController($dbc) {
     }
     
     // Send data to local db
-    if($resp->isSuccess() && !$errors) {
-      $insert = 'INSERT INTO contact_entries (name, email, phone, address, referral, budget1, budget2) VALUES (:name, :email, :phone, :address, :referral, :budget1, :budget2)';
-      $statement = $dbc->prepare($insert);
-      $statement->bindValue(':name', $name, PDO::PARAM_STR);
-      $statement->bindValue(':email', $email, PDO::PARAM_STR);
-      $statement->bindValue(':phone', $phone, PDO::PARAM_STR);
-      $statement->bindValue(':address', $address, PDO::PARAM_STR);
-      $statement->bindValue(':referral', $referral, PDO::PARAM_STR);
-      $statement->bindValue(':budget1', $budget1, PDO::PARAM_STR);
-      $statement->bindValue(':budget2', $budget2, PDO::PARAM_STR);
-      $statement->execute();
-    } else { 
-      $errors['reCaptcha'] = $resp->getErrorCodes(); 
-    }  
+    // if($resp->isSuccess() && !$errors) {
+    //   $insert = 'INSERT INTO contact_entries (name, email, phone, address, referral, budget1, budget2) VALUES (:name, :email, :phone, :address, :referral, :budget1, :budget2)';
+    //   $statement = $dbc->prepare($insert);
+    //   $statement->bindValue(':name', $name, PDO::PARAM_STR);
+    //   $statement->bindValue(':email', $email, PDO::PARAM_STR);
+    //   $statement->bindValue(':phone', $phone, PDO::PARAM_STR);
+    //   $statement->bindValue(':address', $address, PDO::PARAM_STR);
+    //   $statement->bindValue(':referral', $referral, PDO::PARAM_STR);
+    //   $statement->bindValue(':budget1', $budget1, PDO::PARAM_STR);
+    //   $statement->bindValue(':budget2', $budget2, PDO::PARAM_STR);
+    //   $statement->execute();
+    // } else { 
+    //   $errors['reCaptcha'] = $resp->getErrorCodes(); 
+    // }  
   }
 
   $data['errors'] = $errors;
