@@ -26,6 +26,7 @@ extract(pageController());
 <body>
   <div id="main" class="container">
     <div class="content">
+      <h1>URI Checker</h1>
       <p>Class Webpage returns a boolean based on two given URLs, which can be entered into the fields below.</p>
       <ul>
         <li>Returns true if $requestedUrl is the same as $myUrl.</li>
@@ -63,13 +64,18 @@ extract(pageController());
       </div>
       <div class="output-box">
         <?php if (isset($myUrl) && isset($requestedUrl) && isset($showHighlight)) : ?>
-          <p>
-            $showHightlight(<span class='entered-values'>'<?php echo $myUrl ?>'</span>
-            <span style="color: #b13030;">&&</span>
-            <span class='entered-values'>'<?php echo $requestedUrl ?>'</span>);
-          </p>
+        <p class="show-method">
+          $webpage->showHightlight(<span class='entered-values'>'<?php echo $myUrl ?>'</span>
+          <span style="color: #b13030; font-weight: 600;">&&</span>
+          <span class='entered-values'>'<?php echo $requestedUrl ?>'</span>);
+        </p>
           <h2>> <?php echo ($showHighlight) ? 'true' : 'false'; ?></h2>
         <?php else: ?>
+          <p class="show-method">
+            $webpage->showHightlight(<span class='entered-values'>'$myUrl'</span>
+            <span style="color: #b13030; font-weight: 600;">&&</span>
+            <span class='entered-values'>'$requestedUrl'</span>);
+          </p>
           <span style="color: #bbb;">Your output will display here.</span>
         <?php endif; ?>
       </div>
