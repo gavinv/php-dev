@@ -1,10 +1,10 @@
 <?php
-require 'vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 ?>
 <html>
 <head>
   <title>Gavin Vaught</title>
-  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -28,9 +28,9 @@ require 'vendor/autoload.php';
       <div class="bottom-extras content-center">
         <b>Some recent tests:</b>
         <p>
-          <a href="/tests/uri-checker.php">URI Checker</a> |
-          <a href="/tests/breadcrumbs.php">Breadcrumbs</a> |
-          <a href="/tests/realco/contact.php">Contact Form</a>
+          <a href="tests/uri-checker.php">URI Checker</a> |
+          <a href="tests/breadcrumbs.php">Breadcrumbs</a> |
+          <a href="tests/realco/contact-us.php">Contact Form</a>
         </p>
       </div>
     </div>
