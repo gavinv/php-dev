@@ -1,3 +1,6 @@
+<?php
+ini_set("include_path", "../".ini_get("include_path"));
+?>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title><?php echo (isset($pageName)) ? $pagename.' – ' : '' ;?>Gavin Vaught</title>
@@ -19,14 +22,3 @@
   integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" 
   crossorigin="anonymous"></script>
 </head>
-
-<body>
-
-<div id="contact">
-<h3>Your message has been sent!</h3><br>
-<p><a href="/realco/contact.php">Back to Contact Form</a></p>
-</div>
-
-</body>
-
-</html>

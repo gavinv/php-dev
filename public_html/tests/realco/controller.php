@@ -2,7 +2,7 @@
 // require_once __DIR__ . '/../../../config/pdo_connect.php';
 require_once __DIR__ . '/../../../src/Input.php';
 
-function pageController($dbc) {
+function pageController() {
   $data = [];
   $errors = [];
   // $data['entries'] = $dbc->query('SELECT * FROM contact_entries')->fetchAll();
