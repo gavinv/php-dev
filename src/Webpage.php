@@ -11,15 +11,16 @@ class Webpage {
   public function showHighlight(string $requestedUrl) {
     $highlightState = false;
 
-    if ($this->getFilename($requestedUrl) == $this->getFilename($this->myUrl)) {
+    if ($this->myUrl == $requestedUrl) {
       $highlightState = true;
     } else if ($this->compareSections($this->myUrl, $requestedUrl)) {
       $highlightState = true;
     } else {
       $highlightState = false;
     }
-    
+
     return $highlightState = ($highlightState) ? 'true' : 'false';
+    // return print_r($this->compareSections($this->myUrl, $requestedUrl));
   }
 
   /**
@@ -40,6 +41,19 @@ class Webpage {
     
     return $filename;
   }
+  
+  /**
+   * Takes provided $uri path as a string and parses to an array of sections.
+   *
+   * @param string $url
+   * @return array $sections
+   */
+  private function getSections(string $url) {
+    $sections = preg_split('/\//', $url, -1, PREG_SPLIT_NO_EMPTY);
+    array_pop($sections);
+
+    return $sections;
+  }
 
   /**
    * compares parsed path sections to help determine highlight.
@@ -50,41 +64,16 @@ class Webpage {
   private function compareSections(string $url1, string $url2) {
     $sections1 = $this->getSections($url1);
     $sections2 = $this->getSections($url2);
-    $result;
+    $assoc = array_intersect_assoc($sections1, $sections2);
+    $result = false;
 
-    $result = array_intersect_assoc($sections1, $sections2);
-    if (array_keys($result) == array_keys($sections1)) {
-      if (array_keys($result) == array_keys($sections2)) {
-        $result = true;
-      } else if ($this->isLanding($url1) || $this->isLanding($url2)) {
+    if ($assoc == $sections1 || $assoc == $sections2) {
+      if ($this->isLanding($url1) || $this->isLanding($url2)) {
         $result = true;
       }
-    } else {
-      $result = false;
-    }
+    } 
 
     return $result;
-  }
-
-  /**
-   * Takes provided $uri path as a string and parses to an array of sections.
-   *
-   * @param string $url
-   * @return array $sections
-   */
-  private function getSections(string $url) {
-    $sections = [];
-    $uriSegments = explode('/', $url);
-
-    foreach($uriSegments as $segment) {
-      if (preg_match('/(?!\/)\w+(?<!\/)/', $segment)) {
-        $sections[] = $segment;
-      } else {
-        continue;
-      }
-    }
-    
-    return $sections;
   }
 
   /**

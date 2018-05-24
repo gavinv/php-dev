@@ -1,6 +1,7 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../src/Contact.php';
+require __DIR__ . '/../src/Input.php';
 
 $oForm  = new Dominiquevienne\Honeypot\Form();
 $oForm->timeCheck();
