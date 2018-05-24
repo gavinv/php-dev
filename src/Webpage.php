@@ -19,8 +19,7 @@ class Webpage {
       $highlightState = false;
     }
 
-    return $highlightState = ($highlightState) ? 'true' : 'false';
-    // return print_r($this->compareSections($this->myUrl, $requestedUrl));
+    return $highlightState;
   }
 
   /**
