@@ -161,6 +161,7 @@ fieldset {
 #form input[type="url"],
 #form input[type="number"],
 #form input[type="address"],
+#form select,
 #form textarea {
   width: 100%;
   border: 1px solid #ccc;
@@ -181,6 +182,12 @@ fieldset {
   transition: border-color 0.3s ease-in-out;
   border: 1px solid #aaa;
 }
+#form select {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  padding: 11px;
+}
 
 #form input[type="text"]:focus,
 #form input[type="email"]:focus,
@@ -188,6 +195,7 @@ fieldset {
 #form input[type="url"]:focus,
 #form input[type="number"]:focus,
 #form input[type="address"]:focus,
+#form select:focus,
 #form textarea:focus {
   -webkit-transition: border-color 0.3s ease-in-out;
   -moz-transition: border-color 0.3s ease-in-out;
@@ -199,20 +207,33 @@ fieldset {
   z-index: 1;
 }
 
+.has-error {
+  border-color: #be2828;
+  box-shadow: 0 0 2px rgba(169, 17, 169, 0.5);
+}
+.error {
+  color: #e24040;
+}
+
 #form textarea {
   height: 100px;
   max-width: 100%;
   resize: none;
 }
 
-#form input[type="number"] {
-	max-width: 45%;
-	display: inline-block;
-	margin: 0 auto;
+#budgetgroup {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2em;
+  position: relative;
 }
 
-#budget1 {
-	margin-right: 2em;
+#budgetgroup:after {
+  content: '–';
+  position: absolute;
+  top: 28px;
+  left: 49%;
 }
 
 .g-recaptcha {

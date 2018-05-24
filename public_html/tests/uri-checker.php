@@ -1,7 +1,7 @@
 <?php
-require '../src/Webpage.php';
-require '../vendor/autoload.php';
-require '../src/Input.php';
+require __DIR__ . '/../../vendor/autoload.php';
+require __DIR__ . '/../../src/Input.php';
+require __DIR__ . '/../../src/Webpage.php';
 
 function pageController() {
   $data = [];
