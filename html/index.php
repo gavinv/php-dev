@@ -30,6 +30,9 @@ require __DIR__ . '/../vendor/autoload.php';
           <a href="tests/breadcrumbs.php">Breadcrumbs</a> |
           <a href="tests/realco/contact-us.php">Contact Form</a>
         </p>
+        <div id="logo">
+          <img width="250px" src="images/zelda.svg">
+        </div>
       </div>
     </div>
   </div>
