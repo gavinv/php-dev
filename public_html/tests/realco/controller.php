@@ -9,7 +9,7 @@ function pageController() {
   $data['page'] = Input::get('page', 1);
   $secret = '6LdGs1oUAAAAAGZKT6Jn1195cNvOOdR3QeZ59wLB';
   $recaptcha = new \ReCaptcha\ReCaptcha($secret);
-  $lang = 'en';
+  $data['lang'] = 'en';
 
   if(Input::isPost()) {
     try {
@@ -91,6 +91,7 @@ function pageController() {
       $body .= "\n";
       // send email 
       $body = mail($emailTo, $subject, $body, 'From: <noreply@gavinvaught.com>');
+      header('Location: /tests/realco/thank-you.php');
     }
     
     // Send data to local db
