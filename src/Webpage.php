@@ -1,11 +1,12 @@
 <?php
 
 class Webpage {
-
-  private $myUrl;
+  public $myUrl;
+  public $anchorText;
 
   public function __construct(string $url) {
     $this->myUrl = $url;
+    $this->anchorText = $this->getFilename($url);
   }
 
   public function showHighlight(string $requestedUrl) {

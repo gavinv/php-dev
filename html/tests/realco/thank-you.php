@@ -1,3 +1,6 @@
+<?php
+header( "refresh:5;url=/tests/realco/contact-us.php" );
+?>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title><?php echo (isset($pageName)) ? $pageName.' – ' : '' ;?>Gavin Vaught</title>
@@ -24,8 +27,9 @@
 <body>
 
 <div id="contact">
-<h3>Your message has been sent!</h3><br>
-<p><a href="/realco/contact.php">Back to Contact Form</a></p>
+<h3>Thank you for reaching out!</h3>
+<p>Your message has been sent.</p>
+<p>This page will redirect automatically. Click <a href="/tests/realco/contact-us.php">here</a> if it does not.</p>
 </div>
 
 </body>
